@@ -49,9 +49,30 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                double derece = Double.parseDouble(etDerece.getText().toString());
+                double derece = 0.0;
+                if (etDerece.getText() != null){
+                    derece = Double.parseDouble(etDerece.getText().toString());
+                }
+
                 myMath.setDerece(derece);
-                result.setText("Result: " + myMath.sinus());
+                String secilenFonksiyon = spFonkiyonlar.getSelectedItem().toString();
+                double sonuc = 0.0;
+
+                switch (secilenFonksiyon){
+                    case "Sine": sonuc = myMath.sinus();
+                    break;
+                    case "Cosine": sonuc = myMath.cosinus();
+                        break;
+                    case "Tangent": sonuc = myMath.tanjant();
+                        break;
+                    case "Cotangent": sonuc = myMath.cotanjant();
+                        break;
+                    case "Secant": sonuc = myMath.secant();
+                        break;
+                    case "Cosecant": sonuc = myMath.cosecant();
+                        break;
+                }
+                result.setText("Result: " + sonuc);
             }
 
             @Override
