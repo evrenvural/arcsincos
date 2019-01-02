@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Arcsincos</string>
+    <string-array name="fonksiyonlar">
+        <item>Sinus</item>
+        <item>Cosinus</item>
+        <item>Tanjant</item>
+        <item>Cotanjant</item>
+    </string-array>
 </resources>
