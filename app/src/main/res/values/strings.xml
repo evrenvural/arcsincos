@@ -1,9 +1,11 @@
 <resources>
     <string name="app_name">Arcsincos</string>
     <string-array name="fonksiyonlar">
-        <item>Sinus</item>
-        <item>Cosinus</item>
-        <item>Tanjant</item>
-        <item>Cotanjant</item>
+        <item>Sine</item>
+        <item>Cosine</item>
+        <item>Tangent</item>
+        <item>Cotangent</item>
+        <item>Secant</item>
+        <item>Cosecant</item>
     </string-array>
 </resources>
