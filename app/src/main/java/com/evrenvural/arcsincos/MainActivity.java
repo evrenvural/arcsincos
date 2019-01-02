@@ -2,10 +2,14 @@ package com.evrenvural.arcsincos;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Switch;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,12 +17,21 @@ public class MainActivity extends AppCompatActivity {
     Switch mySwitch;
 
     Spinner spFonkiyonlar;
+    EditText etDerece;
+    TextView result;
+    MyMath myMath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mySwitch = findViewById(R.id.mySwitch);
+        etDerece = findViewById(R.id.etDerece);
+        result = findViewById(R.id.tvResult);
+
+        myMath = new MyMath();
+
+
         mySwitch.setChecked(true);
         spinnerEkle(true);
         mySwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -28,7 +41,24 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        etDerece.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                double derece = Double.parseDouble(etDerece.getText().toString());
+                myMath.setDerece(derece);
+                result.setText("Result: " + myMath.sinus());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
 
     }
 

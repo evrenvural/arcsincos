@@ -54,7 +54,7 @@
         android:layout_marginStart="27dp"
         android:layout_marginLeft="114dp"
         android:layout_marginBottom="248dp"
-        android:text="Result: 0"
+        android:text="Result:"
         android:textSize="18sp"
         android:textStyle="bold" />
 
