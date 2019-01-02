@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 double derece = 0.0;
-                if (etDerece.getText() != null){
+                if (!etDerece.getText().toString().equals("")){
                     derece = Double.parseDouble(etDerece.getText().toString());
                 }
 
@@ -101,4 +101,6 @@ public class MainActivity extends AppCompatActivity {
            spFonkiyonlar.setAdapter(arrayAdapter);
        }
     }
+    
 }
+
