@@ -19,7 +19,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void spinnerEkle(){
-        array_spinner = new String[4];
+        int arrayUzunluk = getResources().getStringArray(R.array.fonksiyonlar).length;
+        array_spinner = new String[arrayUzunluk];
         array_spinner = getResources().getStringArray(R.array.fonksiyonlar);
         spFonkiyonlar = findViewById(R.id.spFonksiyonlar);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,array_spinner);
