@@ -101,6 +101,6 @@ public class MainActivity extends AppCompatActivity {
            spFonkiyonlar.setAdapter(arrayAdapter);
        }
     }
-    
+
 }
 

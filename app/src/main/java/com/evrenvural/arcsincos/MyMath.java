@@ -29,7 +29,12 @@ public class MyMath{
         return Math.sin(derece);
     }
     public double cosinus(){
-        return Math.cos(derece);
+       if (derece == Math.toRadians(90) || derece == Math.toRadians(270))
+           return 0.0;
+       else {
+           return Math.cos(derece);
+       }
+
     }
     public double tanjant(){
         return Math.tan(derece);
@@ -38,7 +43,7 @@ public class MyMath{
         return 1.0 / Math.tan(derece);
     }
     public double secant(){
-        return 1.0 / Math.cos(derece);
+        return 1.0 / cosinus();
     }
     public double cosecant(){
         return 1.0 / Math.sin(derece);
