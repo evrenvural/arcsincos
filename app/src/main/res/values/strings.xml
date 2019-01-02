@@ -8,4 +8,12 @@
         <item>Secant</item>
         <item>Cosecant</item>
     </string-array>
+    <string-array name="ters_fonksiyonlar">
+        <item>Arcsine</item>
+        <item>Arccosine</item>
+        <item>Arctangent</item>
+        <item>Arccotangent</item>
+        <item>Arcsecant</item>
+        <item>Arccosecant</item>
+    </string-array>
 </resources>
