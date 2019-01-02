@@ -9,8 +9,8 @@ import android.widget.Switch;
 
 public class MainActivity extends AppCompatActivity {
 
-    private String array_spinner[];
-    private Switch mySwitch;
+    String array_spinner[];
+    Switch mySwitch;
 
     Spinner spFonkiyonlar;
 
@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
                 spinnerEkle(isChecked);
             }
         });
+
 
 
     }
