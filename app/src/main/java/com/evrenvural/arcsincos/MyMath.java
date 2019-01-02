@@ -48,7 +48,5 @@ public class MyMath{
     public double cosecant(){
         return 1.0 / Math.sin(derece);
     }
-    void deneme(){
-        
-    }
+   
 }
