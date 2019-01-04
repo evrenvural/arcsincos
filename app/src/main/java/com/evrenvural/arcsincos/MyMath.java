@@ -36,7 +36,7 @@ public class MyMath{
        }
 
     }
-    public double tanjant(){
+    public double tanjant(){    //Burada kaldım değerler doğru mu diye bakıyodum ve yanlış sanırım, spinner değişince de değer değissin bu arada
         return Math.tan(derece);
     }
     public double cotanjant(){
@@ -48,5 +48,6 @@ public class MyMath{
     public double cosecant(){
         return 1.0 / Math.sin(derece);
     }
-   
+
+
 }

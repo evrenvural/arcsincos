@@ -29,7 +29,7 @@
         android:layout_marginBottom="0dp"
         android:ems="10"
         android:hint="Please, enter degree"
-        android:inputType="number" />
+        android:inputType="numberDecimal" />
 
     <Switch
         android:id="@+id/mySwitch"
