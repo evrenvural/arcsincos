@@ -23,8 +23,6 @@ public class MyMath{
         }
         this.derece = Math.toRadians(derece);
     }
-
-
     public double sinus(){
         double result  = Math.sin(derece);
         result=format(result);
@@ -42,7 +40,7 @@ public class MyMath{
         double result  = Math.tan(derece);
         result=format(result);
 
-        return result;
+        return sinus()/cosinus();
     }
     public double cotanjant(){
         return 1.0 / Math.tan(derece);
@@ -53,9 +51,6 @@ public class MyMath{
     public double cosecant(){
         return 1.0 / Math.sin(derece);
     }
-
-
-
 
     private double format(double value) {
         return (double)Math.round(value * 1000000) / 1000000; //you can change this to round up the value(for two position use 100...)
