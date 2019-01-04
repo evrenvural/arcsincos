@@ -26,18 +26,23 @@ public class MyMath{
 
 
     public double sinus(){
-        return Math.sin(derece);
+        double result  = Math.sin(derece);
+        result=format(result);
+
+        return result;
     }
     public double cosinus(){
-       if (derece == Math.toRadians(90) || derece == Math.toRadians(270))
-           return 0.0;
-       else {
-           return Math.cos(derece);
-       }
+        double result  = Math.cos(derece);
+        result = format(result);
+
+        return result;
 
     }
     public double tanjant(){    //Burada kaldım değerler doğru mu diye bakıyodum ve yanlış sanırım, spinner değişince de değer değissin bu arada
-        return Math.tan(derece);
+        double result  = Math.tan(derece);
+        result=format(result);
+
+        return result;
     }
     public double cotanjant(){
         return 1.0 / Math.tan(derece);
@@ -50,4 +55,9 @@ public class MyMath{
     }
 
 
+
+
+    private double format(double value) {
+        return (double)Math.round(value * 1000000) / 1000000; //you can change this to round up the value(for two position use 100...)
+    }
 }
