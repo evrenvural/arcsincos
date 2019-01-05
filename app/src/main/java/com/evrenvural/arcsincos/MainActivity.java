@@ -34,9 +34,9 @@ public class MainActivity extends AppCompatActivity {
         myMath = new MyMath();
 
 
-        mySwitch.setChecked(true);
-        spinnerEkle(true);
-        tersMi = true;
+        mySwitch.setChecked(false);
+        spinnerEkle(false);
+        tersMi = false;
         mySwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
