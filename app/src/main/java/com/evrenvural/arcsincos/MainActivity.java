@@ -75,16 +75,25 @@ public class MainActivity extends AppCompatActivity {
         double tersi = 0.0;
         if (!etDerece.getText().toString().equals("")){
             derece = Double.parseDouble(etDerece.getText().toString());
-        }
-        if (!etDerece.getText().toString().equals("")){
             tersi = Double.parseDouble(etDerece.getText().toString());
+        }
+        else{
+            if (tersMi){
+                result.setText("Degree: ");
+                etDerece.setHint("Please, enter result");
+            }
+            else{
+                result.setText("Result: ");
+                etDerece.setHint("Please, enter degree");
+            }
+            return;
         }
 
         String secilenFonksiyon = spFonkiyonlar.getSelectedItem().toString();
         double sonuc = 0.0;
 
         if (tersMi){
-            etDerece.setHint("Please, enter result");
+
             myMath.setTersi(tersi);
 
             switch (secilenFonksiyon) {
@@ -101,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
             result.setText("Degree: " + sonuc + "°");
         }
         else {
-            etDerece.setHint("Please, enter degree");
+
             myMath.setDerece(derece);
 
             switch (secilenFonksiyon){
