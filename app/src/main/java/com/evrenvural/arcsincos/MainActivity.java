@@ -76,22 +76,13 @@ public class MainActivity extends AppCompatActivity {
 
                     switch (secilenFonksiyon) {
                         case "Arcsine":
-                            sonuc = myMath.arcSin();
+                            sonuc = myMath.arcSinus();
                             break;
                         case "Arccosine":
-                            sonuc = myMath.cosinus(); //Methodlar henüz düzeltilmedi.
+                            sonuc = myMath.arcCosinus();
                             break;
                         case "Arctangent":
-                            sonuc = myMath.tanjant();
-                            break;
-                        case "Arccotangent":
-                            sonuc = myMath.cotanjant();
-                            break;
-                        case "Arcsecant":
-                            sonuc = myMath.secant();
-                            break;
-                        case "Arccosecant":
-                            sonuc = myMath.cosecant();
+                            sonuc = myMath.arcTanjant();
                             break;
                     }
                 }

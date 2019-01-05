@@ -18,9 +18,7 @@ public class MyMath{
     }
 
     public void setDerece(double derece) {
-        if (derece >= 360){
-            derece = derece % 360;
-        }
+
         this.derece = Math.toRadians(derece);
     }
     public double sinus(){
@@ -51,5 +49,23 @@ public class MyMath{
 
     private double format(double value) {
         return (double)Math.round(value * 1000000) / 1000000; //you can change this to round up the value(for two position use 100...)
+    }
+
+    //
+
+    public double arcSinus(){
+        double result = Math.asin(tersi);
+        result = Math.toDegrees(result);
+        return result;
+    }
+    public double arcCosinus(){
+        double result = Math.acos(tersi);
+        result = Math.toDegrees(result);
+        return result;
+    }
+    public double arcTanjant(){
+        double result = Math.atan(tersi);
+        result = Math.toDegrees(result);
+        return result;
     }
 }
