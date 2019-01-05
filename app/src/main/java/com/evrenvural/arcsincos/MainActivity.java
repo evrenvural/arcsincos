@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     TextView result;
     MyMath myMath;
 
+    boolean tersMi;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,10 +36,12 @@ public class MainActivity extends AppCompatActivity {
 
         mySwitch.setChecked(true);
         spinnerEkle(true);
+        tersMi = true;
         mySwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 spinnerEkle(isChecked);
+                tersMi=isChecked;
             }
         });
 
@@ -49,28 +53,67 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                if (etDerece.getText().toString().equals("-") || etDerece.getText().toString().equals("-.")||
+                        etDerece.getText().toString().equals(".-") || etDerece.getText().toString().equals("."))
+                    return;
+
                 double derece = 0.0;
+                double tersi = 0.0;
                 if (!etDerece.getText().toString().equals("")){
                     derece = Double.parseDouble(etDerece.getText().toString());
                 }
+                if (!etDerece.getText().toString().equals("")){
+                    tersi = Double.parseDouble(etDerece.getText().toString());
+                }
 
-                myMath.setDerece(derece);
                 String secilenFonksiyon = spFonkiyonlar.getSelectedItem().toString();
                 double sonuc = 0.0;
 
-                switch (secilenFonksiyon){
-                    case "Sine": sonuc = myMath.sinus();
-                    break;
-                    case "Cosine": sonuc = myMath.cosinus();
-                        break;
-                    case "Tangent": sonuc = myMath.tanjant();
-                        break;
-                    case "Cotangent": sonuc = myMath.cotanjant();
-                        break;
-                    case "Secant": sonuc = myMath.secant();
-                        break;
-                    case "Cosecant": sonuc = myMath.cosecant();
-                        break;
+                if (tersMi){
+
+                    myMath.setTersi(tersi);
+
+                    switch (secilenFonksiyon) {
+                        case "Arcsine":
+                            sonuc = myMath.arcSin();
+                            break;
+                        case "Arccosine":
+                            sonuc = myMath.cosinus(); //Methodlar henüz düzeltilmedi.
+                            break;
+                        case "Arctangent":
+                            sonuc = myMath.tanjant();
+                            break;
+                        case "Arccotangent":
+                            sonuc = myMath.cotanjant();
+                            break;
+                        case "Arcsecant":
+                            sonuc = myMath.secant();
+                            break;
+                        case "Arccosecant":
+                            sonuc = myMath.cosecant();
+                            break;
+                    }
+                }
+                else {
+
+                    myMath.setDerece(derece);
+
+                    switch (secilenFonksiyon){
+                        case "Sine": sonuc = myMath.sinus();
+                            break;
+                        case "Cosine": sonuc = myMath.cosinus();
+                            break;
+                        case "Tangent": sonuc = myMath.tanjant();
+                            break;
+                        case "Cotangent": sonuc = myMath.cotanjant();
+                            break;
+                        case "Secant": sonuc = myMath.secant();
+                            break;
+                        case "Cosecant": sonuc = myMath.cosecant();
+                            break;
+                            }
+
                 }
                 result.setText("Result: " + sonuc);
             }
