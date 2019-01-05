@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 spinnerEkle(isChecked);
                 tersMi=isChecked;
+                degerleriGir();
             }
         });
 
@@ -53,60 +54,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                degerleriGir();
 
-                if (etDerece.getText().toString().equals("-") || etDerece.getText().toString().equals("-.")||
-                        etDerece.getText().toString().equals(".-") || etDerece.getText().toString().equals("."))
-                    return;
-
-                double derece = 0.0;
-                double tersi = 0.0;
-                if (!etDerece.getText().toString().equals("")){
-                    derece = Double.parseDouble(etDerece.getText().toString());
-                }
-                if (!etDerece.getText().toString().equals("")){
-                    tersi = Double.parseDouble(etDerece.getText().toString());
-                }
-
-                String secilenFonksiyon = spFonkiyonlar.getSelectedItem().toString();
-                double sonuc = 0.0;
-
-                if (tersMi){
-
-                    myMath.setTersi(tersi);
-
-                    switch (secilenFonksiyon) {
-                        case "Arcsine":
-                            sonuc = myMath.arcSinus();
-                            break;
-                        case "Arccosine":
-                            sonuc = myMath.arcCosinus();
-                            break;
-                        case "Arctangent":
-                            sonuc = myMath.arcTanjant();
-                            break;
-                    }
-                }
-                else {
-
-                    myMath.setDerece(derece);
-
-                    switch (secilenFonksiyon){
-                        case "Sine": sonuc = myMath.sinus();
-                            break;
-                        case "Cosine": sonuc = myMath.cosinus();
-                            break;
-                        case "Tangent": sonuc = myMath.tanjant();
-                            break;
-                        case "Cotangent": sonuc = myMath.cotanjant();
-                            break;
-                        case "Secant": sonuc = myMath.secant();
-                            break;
-                        case "Cosecant": sonuc = myMath.cosecant();
-                            break;
-                            }
-
-                }
-                result.setText("Result: " + sonuc);
             }
 
             @Override
@@ -114,6 +63,63 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+    }
+
+    private void degerleriGir() {
+        if (etDerece.getText().toString().equals("-") || etDerece.getText().toString().equals("-.")||
+                etDerece.getText().toString().equals(".-") || etDerece.getText().toString().equals("."))
+            return;
+
+        double derece = 0.0;
+        double tersi = 0.0;
+        if (!etDerece.getText().toString().equals("")){
+            derece = Double.parseDouble(etDerece.getText().toString());
+        }
+        if (!etDerece.getText().toString().equals("")){
+            tersi = Double.parseDouble(etDerece.getText().toString());
+        }
+
+        String secilenFonksiyon = spFonkiyonlar.getSelectedItem().toString();
+        double sonuc = 0.0;
+
+        if (tersMi){
+            etDerece.setHint("Please, enter result");
+            myMath.setTersi(tersi);
+
+            switch (secilenFonksiyon) {
+                case "Arcsine":
+                    sonuc = myMath.arcSinus();
+                    break;
+                case "Arccosine":
+                    sonuc = myMath.arcCosinus();
+                    break;
+                case "Arctangent":
+                    sonuc = myMath.arcTanjant();
+                    break;
+            }
+            result.setText("Degree: " + sonuc + "°");
+        }
+        else {
+            etDerece.setHint("Please, enter degree");
+            myMath.setDerece(derece);
+
+            switch (secilenFonksiyon){
+                case "Sine": sonuc = myMath.sinus();
+                    break;
+                case "Cosine": sonuc = myMath.cosinus();
+                    break;
+                case "Tangent": sonuc = myMath.tanjant();
+                    break;
+                case "Cotangent": sonuc = myMath.cotanjant();
+                    break;
+                case "Secant": sonuc = myMath.secant();
+                    break;
+                case "Cosecant": sonuc = myMath.cosecant();
+                    break;
+            }
+            result.setText("Result: " + sonuc);
+        }
 
     }
 
