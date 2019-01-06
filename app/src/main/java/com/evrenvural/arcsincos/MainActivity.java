@@ -4,6 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -39,14 +42,11 @@ public class MainActivity extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build();
         mAdView.loadAd(adRequest);
 
-
-
         mySwitch = findViewById(R.id.mySwitch);
         etDerece = findViewById(R.id.etDerece);
         result = findViewById(R.id.tvResult);
 
         myMath = new MyMath();
-
 
         mySwitch.setChecked(false);
         spinnerEkle(false);
