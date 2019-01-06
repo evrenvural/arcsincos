@@ -34,7 +34,7 @@ public class MyMath{
         return result;
 
     }
-    public double tanjant(){    //Burada kaldım değerler doğru mu diye bakıyodum ve yanlış sanırım, spinner değişince de değer değissin bu arada
+    public double tanjant(){
         return sinus()/cosinus();
     }
     public double cotanjant(){
