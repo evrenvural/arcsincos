@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -17,6 +18,9 @@ import android.widget.TextView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+
+import hotchemi.android.rate.AppRate;
+import hotchemi.android.rate.OnClickButtonListener;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,6 +45,20 @@ public class MainActivity extends AppCompatActivity {
         //AdRequest adRequest = new AdRequest.Builder().build();
         AdRequest adRequest = new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build();
         mAdView.loadAd(adRequest);
+
+        //Rate me!
+        AppRate.with(this)
+                .setInstallDays(0)
+                .setLaunchTimes(3)
+                .setShowLaterButton(true)
+                .setDebug(false)
+                .setOnClickButtonListener(new OnClickButtonListener() {
+                    @Override
+                    public void onClickButton(int which) {
+                        Log.d(MainActivity.class.getName(),Integer.toString(which));
+                    }
+                }).monitor();
+        AppRate.showRateDialogIfMeetsConditions(this);
 
         mySwitch = findViewById(R.id.mySwitch);
         etDerece = findViewById(R.id.etDerece);
